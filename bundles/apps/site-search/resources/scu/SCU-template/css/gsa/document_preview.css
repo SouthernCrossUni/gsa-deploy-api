@@ -1,0 +1,40 @@
+  /** CSS for document previews. */
+  .result-item {
+    position: relative;
+    font-size: 1.3em;
+    border-bottom: 1px solid #EEE;
+    padding: 0.5em;
+  }
+  .non-previewable {
+    background-color: transparent !important;
+    border: 1px solid white !important;
+  }
+  .non-previewable .s {
+    background-color: transparent !important;
+  }
+  div.result-item .dps-viewer {
+    margin: 0;
+  }
+  body.previews-enabled div.result-item-hover {
+    background-color: #ebf2fc;
+    border: 1px solid #cddcf9;
+  }
+  body.previews-enabled div.result-item-hover .s {
+    background-color: #ebf2fc !important;
+  }
+  span.toggle-preview {
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background: url("/preview_off.png");
+  }
+  div.result-item-hover span.toggle-preview {
+    color: #0000cc;
+    background-image: url("/preview_on.png");
+  }
+  body.previews-enabled span.toggle-preview {
+    color: #0000cc !important;
+    background-image: url("/preview_on.png");
+  }

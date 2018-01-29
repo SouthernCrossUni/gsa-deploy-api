@@ -1,0 +1,44 @@
+<instances>
+<instance>
+   <name>News</name>
+   <pattern>https://.*/engage/news/.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>Publications</name>
+   <pattern>http://.*epubs.scu.edu.au/.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>Document Downloads</name>
+   <pattern>https://.*document-downloads.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>Forms</name>
+   <pattern>https://.*activate-your-membership.*</pattern>
+   <pattern>https://.*study-at-scu/help-and-contact.*</pattern>
+   <pattern>https://.*servicedesk.scu.edu.au/hc/en-us/requests/new.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>Policies</name>
+   <pattern>https://.*policies.scu.edu.au.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>MySCU</name>
+   <pattern>https://.*learn.scu.edu.au.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>Courses</name>
+   <pattern>https://.*/study-at-scu/courses.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+<instance>
+   <name>Units</name>
+   <pattern>https://.*/study-at-scu/units.*</pattern>
+   <store_regex_or_name>name</store_regex_or_name>
+</instance>
+</instances>

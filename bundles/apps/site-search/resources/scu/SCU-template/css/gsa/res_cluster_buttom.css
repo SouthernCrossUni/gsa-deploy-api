@@ -1,0 +1,28 @@
+div#clustering {
+    font-size: 84%;
+    line-height: 140%;
+    min-height: 10em;
+    _height: 10em;
+    margin-top: 4em;
+    margin-left: 215px;
+    padding-left: 10px;
+}
+div#clustering h3 {
+    font-size: 100%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+div#clustering table {
+    margin-left: 2em;
+    font-size: 100%;
+}
+div#clustering table a { white-space: nowrap }
+div#clustering table td { padding-right: 1em }
+div#clustering #cluster_status {
+    color: #666666;
+    margin-left: 2em;
+}
+ul.cluster_list {
+  
+}

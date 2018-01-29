@@ -1,0 +1,3 @@
+#keyphrase dev properties
+text=scugsa20
+file=config_dev.xml

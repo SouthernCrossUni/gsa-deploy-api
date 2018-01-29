@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<instances> 
+  <instance> 
+    <name>Education</name> 
+    <pattern>https://.*/school-of-education/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+  <instance>
+    <name>SCU College</name> 
+    <pattern>https://.*/scu-college/.*</pattern>
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+  <instance>
+    <name>Arts &amp; Social Sciences</name> 
+    <pattern>https://.*/school-of-arts-and-social-sciences/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+  <instance>
+    <name>Business &amp; Tourism</name> 
+    <pattern>https://.*/school-of-business-and-tourism/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+  <instance>
+    <name>Environment&#44; Science &amp; Engineering</name> 
+    <pattern>https://.*/school-of-environment-science--engineering/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>  
+  <instance>
+    <name>Indigenous Studies</name> 
+    <pattern>https://.*/gnibi-college-of-indigenous-australian-peoples/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+  <instance>
+    <name>Health &amp; Human Sciences</name> 
+    <pattern>https://.*/school-of-health--human-sciences/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+  <instance>
+    <name>Law &amp; Justice</name> 
+    <pattern>https://.*/school-of-law--justice/.*</pattern> 
+    <store_regex_or_name>name</store_regex_or_name>
+  </instance>
+</instances>    

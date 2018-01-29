@@ -1,0 +1,15 @@
+<globals project="GSA">
+	<!-- Basic Schema constructs -->
+	<!-- 
+	variables 
+	simple map schema used to replace deployment 
+	driven parameters to environment variables
+	-->
+	<variables>
+		<variable match="%env_param%" envKey="env.param"/>
+		<variable match="%gsa_env_param%" envKey="gsa.env.param"/>
+		<variable match="%course_env_param%" envKey="env.course.param"/>
+		<variable match="%app_name%" envKey="app.name"/>
+		<variable match="%app_title%" envKey="app.title"/>
+	</variables>
+</globals>

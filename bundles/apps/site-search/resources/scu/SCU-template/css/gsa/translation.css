@@ -1,0 +1,32 @@
+.skiptranslate,.goog-te-sectional-gadget-link div,.goog-te-sectional-gadget-all div {
+  display: inline;
+}
+.goog-te-sectional-gadget-link .goog-te-gadget-link {
+  background-color: #E5ECF9;
+  border: 1px solid #DCDCFF;
+  border-radius: 3px 3px;
+  color: #03C;
+  padding: 0px 5px;
+  -moz-border-radius: 3px 3px;
+}
+span.goog-te-sectional-gadget-link-text {
+  font-size: 80%;
+  font-weight: normal;
+}
+.trns-span, .trns-cache-link {
+  display: none;
+  margin-right:5px;
+}
+.trns-all-div {
+  display: none;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+.goog-te-sectional-gadget-all .goog-te-gadget-link {
+  color: #03C;
+  padding-right: 22px;
+  padding-left: 7px;
+}
+.goog-te-sectional-gadget-all-logo {
+  padding-left: 7px;
+}
