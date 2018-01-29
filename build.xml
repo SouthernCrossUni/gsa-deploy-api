@@ -1,0 +1,116 @@
+
+<project name="GsaDeploy" default="build" xmlns:if="ant:if" xmlns:unless="ant:unless">
+	<property environment="env"/>
+    <property name="src.dir"                value="src"/>
+    <property name="classes.dir"            value="classes"/>
+    <property name="jar.dir"                value="jar"/>
+    <property name="lib.dir"                value="lib"/>
+    <!-- to make it compatible with resources.xml deploy file, add in dist -->
+    <property name="dist.dir"               value="dist"/>
+    <property name="main"                   value="${main.class}"/>
+    <property name="run.class"              value="${run.class}"/>
+    <property name="java.xmail.path"        value="${env.java.xmail.path}"/>
+    <property name="commons.lang3.path"     value="${env.commons.lang3.path}"/>
+    <property name="antlr.runtime"          value="${env.antlr.runtime}"/>
+    <property name="ant.contrib"            value="${env.antcontrib.path}"/>
+    <property name="jna"                    value="${env.jna}"/>
+    <property name="jsch.ap.cf"             value="${env.jsch.ap.cf}"/>
+    <property name="jsch.ap.core"           value="${env.jsch.ap.core}"/>
+    <property name="jsch.app.lib"           value="${env.jsch.app.lib}"/>
+    <property name="jsch.app.ssha"          value="${env.jsch.app.ssha}"/>
+    <property name="jsch.ap.svnkit.ssh2"    value="${env.jsch.ap.svnkit.ssh2}"/>
+    <property name="jsch.ap.us"             value="${env.jsch.ap.us}"/>
+    <property name="jsch.ap.usn"            value="${env.jsch.ap.usn}"/>
+    <property name="platform"               value="${env.platform}"/>
+    <property name="sax201"                 value="${env.sax201}"/>
+    <property name="seq.lib"                value="${env.seq.lib}"/>
+    <property name="sqljet"                 value="${env.sqljet}"/>
+    <property name="svnkit"                 value="${env.svnkit}"/>
+    <property name="svnkit.ci"              value="${env.svnkit.ci}"/>
+    <property name="svnkit.javahl"          value="${env.svnkit.javahl}"/>
+	<property name="jsoup"          		value="${env.jsoup}"/>
+	<property name="unbescape"          	value="${env.unbescape}"/>
+    <property name="gsa.vip"                value="${env.gsa.vip}"/>
+    <property name="gsa.course.site"        value="${env.gsa.course.site}"/>
+    <property name="gsa.unit.site"          value="${env.gsa.unit.site}"/>
+    <property name="crm.loader.src"         value="${env.crm.loader.src}"/>
+    <property name="t4.site"                value="${env.t4.site}"/>
+
+	<path id="project.classpath">
+    	<fileset dir="${lib.dir}" includes="*.jar"/>
+	</path>
+    <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
+
+    <target name="prepare">
+        <!--<mkdir dir="${jar.dir}"/>-->
+        <!--<mkdir dir="${ant.dir}"/>-->
+        <!-- java x mailer external download -->
+        <get dest="${lib.dir}/javax.mail.jar"                                 src="${java.xmail.path}" />
+        <!-- ant contrib external download -->
+        <mkdir dir="${dist.dir}"/>
+        <get dest="${dist.dir}/ant-contrib-1.0b3.jar"					      src="${ant.contrib}" />
+        <!-- apache commons lang 3 path external download -->
+        <get dest="${lib.dir}/commons-lang3-3.4.jar"                          src="${commons.lang3.path}" />
+        <get dest="${lib.dir}/antlr-runtime-3.4.jar"                          src="${antlr.runtime}"/>
+        <get dest="${lib.dir}/jna-3.4.0.jar"                                  src="${jna}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.connector-factory-0.0.6.jar"    src="${jsch.ap.cf}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.core-0.0.6.jar"                 src="${jsch.ap.core}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.pageant-0.0.6.jar"              src="${jsch.app.lib}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.sshagent-0.0.6.jar"             src="${jsch.app.ssha}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.svnkit-trilead-ssh2-0.0.6.jar"  src="${jsch.ap.svnkit.ssh2}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.usocket-jna-0.0.6.jar"          src="${jsch.ap.us}"/>
+        <get dest="${lib.dir}/jsch.agentproxy.usocket-nc-0.0.6.jar"           src="${jsch.ap.usn}"/>
+        <get dest="${lib.dir}/platform-3.4.0.jar "                            src="${platform}"/>
+        <get dest="${lib.dir}/sax-2.0.1.jar"                                  src="${sax201}"/>
+        <get dest="${lib.dir}/sequence-library-1.0.2.jar"                     src="${seq.lib}"/>
+        <get dest="${lib.dir}/sqljet-1.1.10.jar"                              src="${sqljet}"/>
+        <get dest="${lib.dir}/svnkit-1.7.4.jar"                               src="${svnkit}"/>
+        <get dest="${lib.dir}/svnkit-cli-1.7.11.jar"                          src="${svnkit.ci}"/>
+        <get dest="${lib.dir}/svnkit-javahl16-1.7.11.jar"                     src="${svnkit.javahl}"/>
+    	<get dest="${lib.dir}/jsoup-1.8.3.jar"                     			  src="${jsoup}"/>
+    	<get dest="${lib.dir}/unbescape-1.0.jar"                     		  src="${unbescape}"/>
+    </target>
+    
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="project.classpath" includeantruntime="false"/>
+    </target>
+
+    <target name="taskDefs">
+        <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+            <classpath>
+                <pathelement location="${dist.dir}/ant-contrib-1.0b3.jar"/>
+            </classpath>
+        </taskdef>
+    </target>
+	
+	<!--  used for classes that cannot be executed on the deployments -->
+    <target name="runClass">     
+        <condition property="property.vars.valid" else="false">
+        <and>
+            <isset property="replace.file.source"/>
+            <isset property="replace.file.properties"/>
+        </and>
+        </condition>
+        <java fork="true" classname="${run.class}" failonerror="true">
+            <arg value="${arg.one}" if:set="arg.one"/>
+            <arg value="${arg.two}" if:set="arg.two"/>
+            <arg value="${arg.three}" if:set="arg.three"/>
+            <arg value="${arg.four}" if:set="arg.four"/>
+            <arg value="${arg.five}" if:set="arg.five"/>
+            <arg value="${arg.six}" if:set="arg.six"/>
+            <classpath>
+                <path refid="project.classpath"/>
+                <path refid="application"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="main" depends="runClass"/>
+
+</project>
