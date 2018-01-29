@@ -1,4 +1,0 @@
-#keyphrase properties
-textold=webdev2015
-text=scugsa30
-file=config_prd.xml

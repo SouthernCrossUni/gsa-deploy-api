@@ -1,6 +1,0 @@
-DBA > Doctor of Business Administration
-MBA > Master of Business Administration
-MPA > Master of Professional Accounting
-LLB > Bachelor of Laws
-BBA > Bachelor of Business Administration
-BA > Bachelor of Arts

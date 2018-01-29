@@ -32,7 +32,7 @@ import org.unbescape.xml.XmlEscape;
 
 public class Template extends ScuClasses {
 	
-	private String sourcePath = "https://t4prd-www.scu.edu.au";
+	private String sourcePath = "[[SOURCE_PATH]]";
 	private String appName = "site-search";
 	private String templateFileName = "scu_snippets.xslt";
 	private Document doc;

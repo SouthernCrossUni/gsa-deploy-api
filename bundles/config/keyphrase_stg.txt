@@ -1,3 +1,0 @@
-#keyphrase dev properties
-text=scugsa30
-file=config_stg.xml
